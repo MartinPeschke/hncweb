@@ -1,4 +1,4 @@
-baseurl: /UFOStart/
+baseurl: /hncweb/
 markdown: rdiscount
 safe: true
 lsi: false
