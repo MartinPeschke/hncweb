@@ -207,15 +207,15 @@ a {
   margin:0 25px;
 }
 
-.fb-ico{
-  background: url('../img/sprite.png') no-repeat 0 -50px;
-}
-
-.tw-ico{
-  background: url('../img/sprite.png') no-repeat 0 -100px;
-}
-.sk-ico{
-  background: url('../img/sprite.png') no-repeat 0 -150px;
+.contact-ico {
+  background-image: url('../img/sprite.png');
+  background-repeat: no-repeat;
+  &.fb-ico{background-position: 0 -50px;}
+  &.tw-ico{background-position: 0 -100px;}
+  &.sk-ico{background-position: 0 -150px;}
+  &.fb-ico.inverted {background-position: 0 -350px;}
+  &.tw-ico.inverted {background-position: 0 -400px;}
+  &.sk-ico.inverted {background-position: 0 -450px;}
 }
 
 /* HELPERS */

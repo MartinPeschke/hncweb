@@ -17,9 +17,9 @@
           <div class="pull-right">
             <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav">
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Contact</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li class="{% if page.pagename == 'contact' %}active{% endif %}"><a href="{{ site.baseurl }}contact.html">Contact</a></li>
               </ul>
             </div>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -33,9 +33,9 @@
           <div class="pull-left">
             <div class="collapse navbar-collapse navbar-ex2-collapse">
               <ul class="nav navbar-nav">
-                  <li class="{% if page.pagename == 'portfolio' %}active{% endif %}"><a href="{{ site.baseurl }}portfolio.html">Portfolio</a></li>
-                  <li><a href="#">Methodology</a></li>
-                  <li><a href="#">Team</a></li>
+                <li class="{% if page.pagename == 'portfolio' %}active{% endif %}"><a href="{{ site.baseurl }}portfolio.html">Portfolio</a></li>
+                <li><a href="#">Methodology</a></li>
+                <li><a href="#">Team</a></li>
               </ul>
             </div>
             <button type="button" class="pull-left navbar-toggle" data-toggle="collapse" data-target=".navbar-ex2-collapse">
@@ -53,25 +53,6 @@
 
     {{ content }}
 
-    <div class="l-outer-section l-outer__gray footer">
-      <div class="l-module container">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <h3><span> we'd love to hear from you</span></h3>
-            <div class="col-md-10 col-md-offset-1 text-center">
-              <p class="lead"><a class="text-color" href="mailto:enquiries@hackandcraft.com">enquiries@hackandcraft.com</a></p>
-              <p class="lead">+49 30 420 18 730</p>
-              <p class="lead">Petersburger Strasse 94 </br>12047 Berlin, Germany</p>
-              <div class="social-outer">
-                <a class="fb-ico" href="#">facebook</a>
-                <a class="tw-ico" href="#">twitter</a>
-                <a class="sk-ico" href="#">skype</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="{{ site.baseurl }}static/scripts/bootstrap.min.js"></script>
