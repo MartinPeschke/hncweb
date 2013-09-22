@@ -60,12 +60,12 @@ pagename: portfolio
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <h3><span>Projects</span></h3>
-          <div class="row">
 
+          <div class="row portfolio-indicators">
             {% for project in site.categories.portfolio %}
-              <div class="col-xs-6 col-sm-4 box-projects portfolio-indicators">
+              <div class="col-xs-6 col-sm-4 box-projects{% if forloop.first %} active{% endif %}">
                   <div class="box-projects__image">
-                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img src="{{ site.baseurl }}static/img/projects/{{ project.indicator }}"></a>
+                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img src="{{ site.baseurl }}static/img/projects/indicator_{{ project.slug }}.jpg"></a>
                   </div>
                   <div class="box-projects__label">{{ project.projectname }}</div>
               </div>
