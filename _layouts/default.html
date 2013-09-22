@@ -20,7 +20,7 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav pull-left">
-                <li><a href="projects.html">Projects</a></li>
+                <li class="{% if page.pagename == 'projects' %}active{% endif %}"><a href="{{ site.baseurl }}projects.html">Projects</a></li>
                 <li><a href="#">Methodology</a></li>
                 <li><a href="#">Team</a></li>
             </ul>
@@ -29,6 +29,7 @@
             </div>
         </div>
     </nav>
+
     {{ content }}
 
     <div class="l-outer-section l-outer__gray footer">
