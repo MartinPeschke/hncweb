@@ -34,7 +34,7 @@ $(function(){
     var that        = this
     var activeIndex = this.getActiveIndex()
 
-    if (pos > (this.$items.length - 1) || pos < 0) return
+    if (pos == activeIndex || pos > (this.$items.length - 1) || pos < 0) return
 
     if (this.sliding)       return this.$element.one('slid', function () { that.to(pos) })
     return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
@@ -124,7 +124,7 @@ $(function(){
       var $this   = $(this)
       var data    = $this.data('bs.portfolio')
       var options = $.extend({}, Portfolio.DEFAULTS, $this.data(), typeof option == 'object' && option)
-      var action  = typeof option == 'string' ? option : options.slide
+      var action  = typeof option == 'string' ? option : options.portfolioSlide
 
       if (!data) $this.data('bs.portfolio', (data = new Portfolio(this, options)))
       if (typeof option == 'number') data.to(option)
@@ -139,10 +139,9 @@ $(function(){
   // =================
 
   $(document).on('click.bs.portfolio.data-api', '[data-portfolio-slide], [data-slide-portfolio-to]', function (e) {
-    var $this   = $(this), href
+    var $this   = $(this), href, slideIndex;
     var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
     var options = $.extend({}, $target.data(), $this.data())
-    var slideIndex = $this.attr('data-slide-portfolio-to')
 
     $target.portfolio(options)
 
