@@ -67,7 +67,7 @@
     &.collapse {
       display: block !important;
       height: auto !important;
-      padding-bottom: 0; // Override default setting
+      padding: 0; // Override default setting
       overflow: visible !important;
     }
 
@@ -155,12 +155,6 @@
   &:hover,
   &:focus {
     text-decoration: none;
-  }
-
-  @media (min-width: @grid-float-breakpoint) {
-    .navbar > .container & {
-      margin-left: -@navbar-padding-horizontal;
-    }
   }
 }
 
