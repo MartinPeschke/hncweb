@@ -11,8 +11,9 @@ p {
 }
 .lead {
   margin-bottom: @line-height-computed;
-  font-size: (@font-size-base * 1.15);
-  font-weight: 200;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: upper;
   line-height: 1.4;
 
   @media (min-width: @screen-sm-min) {
@@ -70,6 +71,10 @@ cite    { font-style: normal; }
 .text-left           { text-align: left; }
 .text-right          { text-align: right; }
 .text-center         { text-align: center; }
+.text-light          { font-weight:300; }
+.text-upper          { text-transform: uppercase; }
+.text-white          { color:white; }
+.text-color          { color:@text-color; }
 
 
 // Headings
@@ -81,6 +86,7 @@ h1, h2, h3, h4, h5, h6,
   font-weight: @headings-font-weight;
   line-height: @headings-line-height;
   color: @headings-color;
+  text-align:center;
 
   small {
     font-weight: normal;
