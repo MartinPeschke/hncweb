@@ -48,8 +48,9 @@ pagename: portfolio
     </div>
 
     <div class="second-navi clearfix">
-      <div class="col-xs-6 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="prev">Previous</a></div>
-      <div class="col-xs-6 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="next">Next</a></div>
+      <div class="col-xs-5 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="prev">Previous</a></div>
+      <div class="col-xs-2 marg-btm"><a href="#projects-overview" class="trigger-view">show all</a></div>
+      <div class="col-xs-5 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="next">Next</a></div>
     </div>
   </div>
 
@@ -59,7 +60,7 @@ pagename: portfolio
     <div class="l-module container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h3><span>Projects</span></h3>
+          <h3 id="projects-overview"><span>Projects</span></h3>
 
           <div class="row portfolio-indicators">
             {% for project in site.categories.portfolio %}
