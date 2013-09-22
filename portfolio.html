@@ -3,44 +3,74 @@ layout: portfolio
 title: Hack and Craft
 pagename: portfolio
 ---
+<div id="all-portfolio" class="carousel slide">
+  <div class="l-outer__orange">
+    <div class="carousel-inner">
 
+      {% for project in site.categories.portfolio %}
+        <div class="{% if forloop.first %}active{% endif %} item">
+          <div class="l-module container">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <h3><span>{{ project.projectname }}</span></h3>
+                <div id="carousel-{{ project.slug }}" class="carousel slide carousel__mock-content">
+                  <ol class="carousel-indicators">
+                    {% for slide in project.slides %}
+                      <li data-target="#carousel-{{ project.slug }}" data-slide-to="{{ forloop.index0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+                    {% endfor %}
+                  </ol>
+                  <div class="carousel-inner">
+                    {% for slide in project.slides %}
+                    <div class="{% if forloop.first %}active{% endif %} item"><img src="{{ site.baseurl }}static/img/projects/{{ slide }}" ></div>
+                    {% endfor %}
+                  </div>
+                  <img src="{{ site.baseurl }}static/img/projects/frame.png" class="carousel__mock-frame"/>
+                  {% if project.phone %}
+                    <img class="carousel__phone" src="{{ site.baseurl }}static/img/projects/{{ project.phone }}">
+                  {% endif %}
+                </div>
 
-<div class="l-outer__orange">
-  <div class="l-module container">
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <h3><span>BRAD'S WINE</span></h3>
-        <div id="myCarousel" class="carousel slide carousel__mock-content">
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-          </ol>
-          <!-- Carousel items -->
-          <div class="carousel-inner">
-            <div class="active item"><img src="{{ site.baseurl }}static/img/slides/bradswine1.jpg" ></div>
-            <div class="item"><img src="{{ site.baseurl }}static/img/slides/bradswine2.jpg" ></div>
+                {% if project.website %}
+                <div class="text-center">
+                  <a href="{{ project.website }}" class="btn btn-default marg-btm">visit the site</a>
+                </div>
+                {% endif %}
+
+                {{ project.content }}
+
+              </div>
+            </div>
           </div>
-          <img src="{{ site.baseurl }}static/img/slides/frame.png" class="carousel__mock-frame"/>
-          <img class="carousel__phone" src="{{ site.baseurl }}static/img/slides/bradswine_phone.png">
         </div>
+      {% endfor %}
 
-        <div class="text-center">
-          <a href="#" class="btn btn-default marg-btm">visit the site</a>
-        </div>
-
-        <p class="left-align">Lorepere lat quatum sus. Udam volupta tisqui dolore porio coriber fecors ad magnis quosa hiti commolorunt pa voluptais dolupti orescia dolum quiam authit faceped eulen ernatenime ommolor molorit volupta tiatur. Dusdandam et alit aut eius. Non empor modis et. Us doles sum aute bera mporepel ipicipsum aborerfero entiatquiam.</p>
-        <p class="test-text"><span>"</span>Tid evel ma veliquam, es veant none volup ent ab apit quaom ob staal gehtsen.<span>"</span></p>
-        <p class="test-name">charles miette, svpply</p>
-
-        <div class="second-navi clearfix">
-          <a href="#" class="btn btn-default marg-btm col-xs-4">Previous</a>
-          <div class="col-xs-4 text-center">
-            <a href="#" class="trigger-view">show all</a>
-          </div>
-          <a href="#" class="btn btn-default marg-btm col-xs-4">Next</a>
-        </div>
-
+      <div class="second-navi clearfix">
+        <div class="col-xs-6 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-slide="prev">Previous</a></div>
+        <div class="col-xs-6 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-slide="next">Next</a></div>
       </div>
     </div>
   </div>
+
+  <div class="l-outer__white">
+    <div class="l-module container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h3><span>Projects</span></h3>
+          <div class="row">
+
+            {% for project in site.categories.portfolio %}
+              <div class="col-xs-6 col-sm-4 box-projects">
+                  <div class="box-projects__image">
+                    <a data-target="#all-portfolio" data-slide-to="{{ forloop.index0 }}"><img src="{{ site.baseurl }}static/img/projects/{{ project.indicator }}"></a>
+                  </div>
+                  <div class="box-projects__label">{{ project.projectname }}</div>
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
