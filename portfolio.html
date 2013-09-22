@@ -1,53 +1,53 @@
 ---
-layout: portfolio
+layout: default
 title: Hack and Craft
 pagename: portfolio
 ---
-<div id="all-portfolio" class="carousel slide">
-  <div class="l-outer__orange">
-    <div class="carousel-inner">
+<div id="all-portfolio" class="carousel portfolio slide">
+  <div class="l-outer__orange carousel-inner portfolio-inner">
 
-      {% for project in site.categories.portfolio %}
-        <div class="{% if forloop.first %}active{% endif %} item">
-          <div class="l-module container">
-            <div class="row">
-              <div class="col-md-10 col-md-offset-1">
-                <h3><span>{{ project.projectname }}</span></h3>
-                <div id="carousel-{{ project.slug }}" class="carousel slide carousel__mock-content">
-                  <ol class="carousel-indicators">
-                    {% for slide in project.slides %}
-                      <li data-target="#carousel-{{ project.slug }}" data-slide-to="{{ forloop.index0 }}" class="{% if forloop.first %}active{% endif %}"></li>
-                    {% endfor %}
-                  </ol>
-                  <div class="carousel-inner">
-                    {% for slide in project.slides %}
-                    <div class="{% if forloop.first %}active{% endif %} item"><img src="{{ site.baseurl }}static/img/projects/{{ slide }}" ></div>
-                    {% endfor %}
-                  </div>
-                  <img src="{{ site.baseurl }}static/img/projects/frame.png" class="carousel__mock-frame"/>
-                  {% if project.phone %}
-                    <img class="carousel__phone" src="{{ site.baseurl }}static/img/projects/{{ project.phone }}">
-                  {% endif %}
-                </div>
+    {% for project in site.categories.portfolio %}
+      <div class="{% if forloop.first %}active{% endif %} portfolio item">
+        <div class="l-module container">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <h3><span>{{ project.projectname }}</span></h3>
+              <div id="carousel-{{ project.slug }}" class="carousel slide carousel__mock-content">
 
-                {% if project.website %}
-                <div class="text-center">
-                  <a href="{{ project.website }}" class="btn btn-default marg-btm">visit the site</a>
+                <ol class="carousel-indicators">
+                  {% for slide in project.slides %}
+                    <li data-target="#carousel-{{ project.slug }}" data-slide-to="{{ forloop.index0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+                  {% endfor %}
+                </ol>
+
+                <div class="carousel-inner">
+                  {% for slide in project.slides %}
+                  <div class="{% if forloop.first %}active{% endif %} item"><img src="{{ site.baseurl }}static/img/projects/{{ slide }}" ></div>
+                  {% endfor %}
                 </div>
+                <img src="{{ site.baseurl }}static/img/projects/frame.png" class="carousel__mock-frame"/>
+                {% if project.phone %}
+                  <img class="carousel__phone" src="{{ site.baseurl }}static/img/projects/{{ project.phone }}">
                 {% endif %}
-
-                {{ project.content }}
-
               </div>
+
+              {% if project.website %}
+              <div class="text-center">
+                <a href="{{ project.website }}" class="btn btn-default marg-btm">visit the site</a>
+              </div>
+              {% endif %}
+
+              {{ project.content }}
+
             </div>
           </div>
         </div>
-      {% endfor %}
-
-      <div class="second-navi clearfix">
-        <div class="col-xs-6 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-slide="prev">Previous</a></div>
-        <div class="col-xs-6 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-slide="next">Next</a></div>
       </div>
+    {% endfor %}
+
+    <div class="second-navi clearfix">
+      <div class="col-xs-6 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="prev">Previous</a></div>
+      <div class="col-xs-6 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="next">Next</a></div>
     </div>
   </div>
 
@@ -59,9 +59,9 @@ pagename: portfolio
           <div class="row">
 
             {% for project in site.categories.portfolio %}
-              <div class="col-xs-6 col-sm-4 box-projects">
+              <div class="col-xs-6 col-sm-4 box-projects portfolio-indicators">
                   <div class="box-projects__image">
-                    <a data-target="#all-portfolio" data-slide-to="{{ forloop.index0 }}"><img src="{{ site.baseurl }}static/img/projects/{{ project.indicator }}"></a>
+                    <a data-target="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img src="{{ site.baseurl }}static/img/projects/{{ project.indicator }}"></a>
                   </div>
                   <div class="box-projects__label">{{ project.projectname }}</div>
               </div>
