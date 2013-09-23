@@ -74,7 +74,7 @@ pagename: portfolio
             {% for project in site.categories.portfolio %}
               <div class="col-xs-6 col-sm-4 box-projects{% if forloop.first %} active{% endif %}">
                   <div class="box-projects__image">
-                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img src="{{ site.baseurl }}static/img/projects/indicator_{{ project.slug }}.jpg"></a>
+                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img class="img-responsive" src="{{ site.baseurl }}static/img/projects/indicator_{{ project.slug }}.jpg"></a>
                   </div>
                   <div class="box-projects__label">{{ project.projectname }}</div>
               </div>

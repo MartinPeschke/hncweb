@@ -13,10 +13,10 @@ pagename: portfolio
           <div class="l-module container">
             <div class="row">
               <div class="col-md-4 col-md-offset-4">
-                  <div class="mugshot"><img src="{{ site.baseurl }}static/img/aboutus/{{ member.mugshot }}" ></div>
+                  <div class="mugshot"><img class="img-responsive" src="{{ site.baseurl }}static/img/aboutus/{{ member.mugshot }}" ></div>
               </div>
               <div class="col-md-8 col-md-offset-2">
-                <h3>{{ member.name }}</h3>
+                <h2>{{ member.name }}</h2>
                 <p class="test-text"><span>"</span>{{ member.quote }}<span>"</span></p>
                 {{ member.content }}
               </div>
@@ -39,15 +39,16 @@ pagename: portfolio
     <div class="l-module container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h3 id="members-overview"><span>members</span></h3>
+          <h3 id="members-overview"><span>Our Team</span></h3>
 
           <div class="row portfolio-indicators">
-            {% for member in site.categories.portfolio %}
-              <div class="col-xs-6 col-sm-4 box-members{% if forloop.first %} active{% endif %}">
+            {% for member in site.categories.team %}
+              <div class="col-xs-4 col-sm-3 box-members{% if forloop.first %} active{% endif %}">
                   <div class="box-members__image">
-                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img src="{{ site.baseurl }}static/img/members/indicator_{{ member.slug }}.jpg"></a>
+                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img class="img-responsive" src="{{ site.baseurl }}static/img/aboutus/{{ member.mugshot }} "></a>
                   </div>
                   <div class="box-members__label">{{ member.name }}</div>
+                  <div class="box-members__label">{{ member.position }}</div>
               </div>
             {% endfor %}
 
