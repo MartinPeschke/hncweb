@@ -13,7 +13,9 @@ pagename: portfolio
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <h3><span>{{ project.projectname }}</span></h3>
-                <div id="carousel-{{ project.slug }}" class="carousel slide carousel__mock-content">
+              </div>
+              <div class="col-md-8 col-md-offset-2">
+                <div id="carousel-{{ project.slug }}" class="carousel slide carousel__mock-content {{ project.slidestyle }}">
 
                   <ol class="carousel-indicators">
                     {% for slide in project.slides %}
@@ -26,7 +28,13 @@ pagename: portfolio
                     <div class="{% if forloop.first %}active{% endif %} item"><img src="{{ site.baseurl }}static/img/projects/{{ slide }}" ></div>
                     {% endfor %}
                   </div>
-                  <img src="{{ site.baseurl }}static/img/projects/frame.png" class="carousel__mock-frame"/>
+
+                  {%  if project.slidestyle == 'iphone4' %}
+                    <img src="{{ site.baseurl }}static/img/projects/iphone4_frame.png" class="carousel__mock-frame"/>
+                  {%  else %}
+                    <img src="{{ site.baseurl }}static/img/projects/frame.png" class="carousel__mock-frame"/>
+                  {%  endif %}
+
                   {% if project.phone %}
                     <img class="carousel__phone" src="{{ site.baseurl }}static/img/projects/{{ project.phone }}">
                   {% endif %}
