@@ -67,7 +67,7 @@
     &.collapse {
       display: block !important;
       height: auto !important;
-      padding-bottom: 0; // Override default setting
+      padding: 0; // Override default setting
       overflow: visible !important;
     }
 
@@ -149,18 +149,12 @@
   min-height: 23px;
   min-width:152px;
   text-align:center;
-  display: inline-block;
+  display: block;
   font-size: @font-size-large;
   line-height: @line-height-computed;
   &:hover,
   &:focus {
     text-decoration: none;
-  }
-
-  @media (min-width: @grid-float-breakpoint) {
-    .navbar > .container & {
-      margin-left: -@navbar-padding-horizontal;
-    }
   }
 }
 
@@ -173,7 +167,6 @@
 .navbar-toggle {
   position: relative;
   float: right;
-  margin-right: @navbar-padding-horizontal;
   padding: 9px 10px;
   .navbar-vertical-align(34px);
   background-color: transparent;

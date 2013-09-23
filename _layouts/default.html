@@ -14,42 +14,45 @@
   <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="60">
         <div class="container">
-            <ul class="nav navbar-nav pull-right">
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav pull-left">
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="#">Methodology</a></li>
-                <li><a href="#">Team</a></li>
-            </ul>
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Hack and Craft</a>
+          <div class="pull-right">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav">
+                <li class="{% if page.pagename == 'services' %}active{% endif %}"><a href="{{ site.baseurl }}services.html">Services</a></li>
+                <li><a href="http://blog.hackandcraft.com">Blog</a></li>
+                <li class="{% if page.pagename == 'contact' %}active{% endif %}"><a href="{{ site.baseurl }}contact.html">Contact</a></li>
+              </ul>
             </div>
-        </div>
-    </nav>
-    {{ content }}
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
 
-    <div class="l-outer-section l-outer__gray footer">
-      <div class="l-module container">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <h3><span> we'd love to hear from you</span></h3>
-            <div class="col-md-10 col-md-offset-1 text-center">
-              <p class="lead"><a class="text-color" href="mailto:enquiries@hackandcraft.com">enquiries@hackandcraft.com</a></p>
-              <p class="lead">+49 30 420 18 730</p>
-              <p class="lead">Petersburger Strasse 94 </br>12047 Berlin, Germany</p>
-              <div class="social-outer">
-                <a class="fb-ico" href="#">facebook</a>
-                <a class="tw-ico" href="#">twitter</a>
-                <a class="sk-ico" href="#">skype</a>
-              </div>
+          <div class="pull-left">
+            <div class="collapse navbar-collapse navbar-ex2-collapse">
+              <ul class="nav navbar-nav">
+                <li class="{% if page.pagename == 'portfolio' %}active{% endif %}"><a href="{{ site.baseurl }}portfolio.html">Portfolio</a></li>
+                <li class="{% if page.pagename == 'methodology' %}active{% endif %}"><a href="{{ site.baseurl }}methodology.html">Methodology</a></li>
+                <li class="{% if page.pagename == 'aboutus' %}active{% endif %}"><a href="{{ site.baseurl }}aboutus.html">About Us</a></li>
+              </ul>
             </div>
+            <button type="button" class="pull-left navbar-toggle" data-toggle="collapse" data-target=".navbar-ex2-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-header">
+              <a class="navbar-brand" href="{{ site.baseurl }}">Hack and Craft</a>
           </div>
         </div>
-      </div>
-    </div>
+    </nav>
+
+    {{ content }}
+
 
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="{{ site.baseurl }}static/scripts/bootstrap.min.js"></script>

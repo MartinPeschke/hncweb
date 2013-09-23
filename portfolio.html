@@ -1,0 +1,81 @@
+---
+layout: default_w_contact
+title: Hack and Craft
+pagename: portfolio
+---
+<div id="all-portfolio" class="carousel portfolio slide">
+  <div class="l-outer__orange">
+    <div class="carousel-inner portfolio-inner">
+
+      {% for project in site.categories.portfolio %}
+        <div class="{% if forloop.first %}active{% endif %} portfolio item">
+          <div class="l-module container">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <h3><span>{{ project.projectname }}</span></h3>
+                <div id="carousel-{{ project.slug }}" class="carousel slide carousel__mock-content">
+
+                  <ol class="carousel-indicators">
+                    {% for slide in project.slides %}
+                      <li data-target="#carousel-{{ project.slug }}" data-slide-to="{{ forloop.index0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+                    {% endfor %}
+                  </ol>
+
+                  <div class="carousel-inner">
+                    {% for slide in project.slides %}
+                    <div class="{% if forloop.first %}active{% endif %} item"><img src="{{ site.baseurl }}static/img/projects/{{ slide }}" ></div>
+                    {% endfor %}
+                  </div>
+                  <img src="{{ site.baseurl }}static/img/projects/frame.png" class="carousel__mock-frame"/>
+                  {% if project.phone %}
+                    <img class="carousel__phone" src="{{ site.baseurl }}static/img/projects/{{ project.phone }}">
+                  {% endif %}
+                </div>
+
+                {% if project.website %}
+                <div class="text-center">
+                  <a href="{{ project.website }}" class="btn btn-default marg-btm">visit the site</a>
+                </div>
+                {% endif %}
+
+                {{ project.content }}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="second-navi clearfix">
+      <div class="col-xs-5 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="prev">Previous</a></div>
+      <div class="col-xs-2 marg-btm"><a href="#projects-overview" class="trigger-view">show all</a></div>
+      <div class="col-xs-5 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="next">Next</a></div>
+    </div>
+  </div>
+
+
+
+  <div class="l-outer__white">
+    <div class="l-module container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h3 id="projects-overview"><span>Projects</span></h3>
+
+          <div class="row portfolio-indicators">
+            {% for project in site.categories.portfolio %}
+              <div class="col-xs-6 col-sm-4 box-projects{% if forloop.first %} active{% endif %}">
+                  <div class="box-projects__image">
+                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img src="{{ site.baseurl }}static/img/projects/indicator_{{ project.slug }}.jpg"></a>
+                  </div>
+                  <div class="box-projects__label">{{ project.projectname }}</div>
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
