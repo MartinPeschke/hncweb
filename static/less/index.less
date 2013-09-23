@@ -1,3 +1,10 @@
+.l-main-head {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 70px;
+  position: relative;
+}
+
 .navbar.affix {background-color: #000;}
 
 .l-module {
@@ -12,18 +19,35 @@
   width:209px;
 }
 .service-label {
-  font-size: @font-size-h3;
   text-align: center;
   color:white;
   text-transform: uppercase;
   font-family: @btn-font-family;
-  margin: 20px auto 30px;
+  margin: 35px auto 60px;
+  font-weight: 700;
 }
+.advisor__name {
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 0;
+  margin-top: 20px;
+  line-height: 1.4em;
+  font-weight: 700;
+}
+.advisor__company {margin-bottom: 0;line-height: 1.6em;font-size: @font-size-small;}
+.advisor__role {
+  line-height: 1.6em;
+  font-weight: 700;
+  margin-bottom: 50px;
+  font-size: @font-size-small;
+}
+
+
 
 
 .section-heading {
   margin-bottom: 40px;
-  h3 {
+  .l-module__section-header {
     white-space: nowrap;
     padding: 0 50px;
     background: none;
@@ -35,5 +59,17 @@
   }
 }
 
-.single-client-logo {margin-bottom:25px;}
+.single-client-logo {margin-bottom:35px;}
 .single-adv {text-align: center;margin-bottom: 40px;}
+
+
+@media (min-width: @grid-float-breakpoint) {
+  .l-main-head {
+    padding-top: 150px;
+    padding-bottom: 230px;
+  }
+  .service-label {
+    letter-spacing: @letter-spacing-large;
+    font-size: @font-size-h3 + 1px;
+  }
+}

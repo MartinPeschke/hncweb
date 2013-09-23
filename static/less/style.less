@@ -72,12 +72,6 @@ a {
 }
 /* MAIN HEAD MODULE */
 
-.l-main-head {
-  text-align: center;
-  padding-top: 150px;
-  padding-bottom: 170px;
-  position: relative;
-}
 
 .btn-ico__down {
   position: absolute;
@@ -100,15 +94,16 @@ a {
   padding-top: 107px;
   padding-bottom: 147px;
   margin: 0 auto;
+  min-height: 800px;
 }
-.l-module h3 {
+.l-module__section-header {
   margin:  0 auto;
   text-transform: uppercase;
   margin-bottom: 60px;
   background: url('../img/bg_title.png') left center repeat-x;
 }
 
-.l-outer__gray .l-module h3 span{
+.l-outer__gray .l-module__section-header span{
   background: #e1e1e2;
   padding: 0 50px;
   display: inline-block;
@@ -116,19 +111,19 @@ a {
 
 
 /* MAIN MODULE WHITE*/
-.l-outer__white .l-module h3 span{
+.l-outer__white .l-module__section-header span{
   background: white;
   padding: 0 50px;
 }
 
 /* MAIN MODULE ORANGE*/
-.l-outer__orange .l-module h3 span{
+.l-outer__orange .l-module__section-header span{
   background: #EB5942;
   padding: 0 50px;
 
 
 /* MAIN MODULE ORANGE*/
-.l-outer__orange .l-module h3 span{
+.l-outer__orange .l-module__section-header span{
   background: #EB5942;
   padding: 0 50px;
 }}
@@ -167,10 +162,11 @@ a {
 .test-text {
   color: white;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 1px;
+  line-height:1.4em;
 }
 .test-text span {
   color: #000;
@@ -201,16 +197,15 @@ a {
 .social-outer{
   margin: 0 auto;
   padding:20px 0 50px;
-  width: 276px;
-}
-.social-outer a{
-  display: block;
-  float: left;
-  width: 42px;
-  height: 42px;
-  text-indent: -9999px;
-  overflow: hidden;
-  margin:0 25px;
+  max-width: 480px;
+  a {
+    display: block;
+    width: 42px;
+    height: 42px;
+    text-indent: -9999px;
+    overflow: hidden;
+    margin:0 auto;
+  }
 }
 
 .contact-ico {
@@ -228,20 +223,6 @@ a {
   &.fb-ico.inverted:hover {background-position: 0 -700px;}
   &.tw-ico.inverted:hover {background-position: 0 -750px;}
   &.sk-ico.inverted:hover {background-position: 0 -800px;}
-}
-
-/* HELPERS */
-.marg-top {
-  margin-top: 100px;
-}
-.marg-btm{
-  margin-bottom: 40px;
-}
-.left-align {
-  text-align:  left;
-}
-.less-marg-top {
-  margin-top: 20px !important;
 }
 
 

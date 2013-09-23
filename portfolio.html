@@ -1,4 +1,4 @@
----
+﻿---
 layout: default_w_contact
 title: Hack and Craft
 pagename: portfolio
@@ -12,7 +12,7 @@ pagename: portfolio
           <div class="l-module container">
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                <h3><span>{{ project.projectname }}</span></h3>
+                <h3 class="l-module__section-header" ><span>{{ project.projectname }}</span></h3>
               </div>
               <div class="col-md-8 col-md-offset-2 mar-top-1">
                 <div id="carousel-{{ project.slug }}" class="carousel slide carousel__mock-content {{ project.slidestyle }}">
@@ -70,7 +70,7 @@ pagename: portfolio
     <div class="l-module container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <h3 id="projects-overview"><span>Portfolio</span></h3>
+          <h3 class="l-module__section-header" id="projects-overview"><span>Portfolio</span></h3>
 
           <div class="row portfolio-indicators">
             {% for project in site.categories.portfolio %}
