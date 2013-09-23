@@ -1,0 +1,60 @@
+---
+layout: default_w_contact
+title: Hack and Craft
+pagename: portfolio
+---
+<div id="all-portfolio" class="carousel portfolio slide">
+
+  <div class="l-outer__orange">
+
+    <div class="carousel-inner portfolio-inner">
+      {% for member in site.categories.team %}
+        <div class="{% if forloop.first %}active{% endif %} portfolio item">
+          <div class="l-module container">
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                  <div class="mugshot"><img src="{{ site.baseurl }}static/img/aboutus/{{ member.mugshot }}" ></div>
+              </div>
+              <div class="col-md-8 col-md-offset-2">
+                <h3>{{ member.name }}</h3>
+                <p class="test-text"><span>"</span>{{ member.quote }}<span>"</span></p>
+                {{ member.content }}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="second-navi clearfix">
+      <div class="col-xs-5 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="prev">Previous</a></div>
+      <div class="col-xs-2 marg-btm"><a href="#members-overview" class="trigger-view">show all</a></div>
+      <div class="col-xs-5 marg-btm"><a class="btn btn-default btn-block" href="#all-portfolio" data-portfolio-slide="next">Next</a></div>
+    </div>
+  </div>
+
+
+
+  <div class="l-outer__white">
+    <div class="l-module container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h3 id="members-overview"><span>members</span></h3>
+
+          <div class="row portfolio-indicators">
+            {% for member in site.categories.portfolio %}
+              <div class="col-xs-6 col-sm-4 box-members{% if forloop.first %} active{% endif %}">
+                  <div class="box-members__image">
+                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img src="{{ site.baseurl }}static/img/members/indicator_{{ member.slug }}.jpg"></a>
+                  </div>
+                  <div class="box-members__label">{{ member.name }}</div>
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
