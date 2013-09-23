@@ -1,7 +1,3 @@
-$(function(){
-    $('a').smoothScroll({offset: -100,easing: 'swing', speed: 200});
-});
-
 
 +function ($) { "use strict";
 
@@ -146,9 +142,19 @@ $(function(){
     $target.portfolio(options)
 
     if (slideIndex = $this.attr('data-slide-portfolio-to')) {
-      $target.data('bs.portfolio').to(slideIndex)
+      $(e.currentTarget).one("afterScroll", function(){
+            setTimeout(function(){$target.data('bs.portfolio').to(slideIndex)}, 100)
+      });
     }
 
     e.preventDefault()
   })
+
+  $('a').smoothScroll({offset: -100,easing: 'swing', speed: 200
+        , afterScroll: function(){
+            $(this).trigger("afterScroll", this);
+      }
+  });
 }(window.jQuery);
+
+
