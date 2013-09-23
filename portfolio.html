@@ -5,11 +5,10 @@ pagename: portfolio
 ---
 <div id="all-portfolio" class="carousel portfolio slide">
   <div class="l-outer__orange">
-    <div class="carousel-inner portfolio-inner">
-
-      {% for project in site.categories.portfolio %}
-        <div class="{% if forloop.first %}active{% endif %} portfolio item">
-          <div class="l-module container">
+    <div class="l-module container">
+      <div class="carousel-inner portfolio-inner">
+        {% for project in site.categories.portfolio %}
+          <div class="{% if forloop.first %}active{% endif %} portfolio item">
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <h3 class="l-module__section-header" ><span>{{ project.projectname }}</span></h3>
@@ -41,26 +40,30 @@ pagename: portfolio
                 </div>
 
                 {% if project.website %}
-                <div class="text-center">
+                <div class="text-center marg-btm">
                   <a target="_blank" href="{{ project.website }}" class="btn btn-black-default marg-btm">visit the site</a>
                 </div>
                 {% endif %}
 
                 <p class="left-align">{{ project.content }}</p>
 
-                <p class="test-text"><span>"</span>{{ project.quote }}<span>"</span></p>
-                <p class="test-name small no-mar">{{ project.quoteauthor }}</p>
+                 {% if project.quote %}
+                  <p class="test-text mar-top-2"><span>"</span>{{ project.quote }}<span>"</span></p>
+                  <p class="test-name small no-mar">{{ project.quoteauthor }}</p>
+                {%  endif %}
               </div>
             </div>
           </div>
-        </div>
-      {% endfor %}
-    </div>
+        {% endfor %}
+      </div>
 
-    <div class="second-navi clearfix">
-      <div class="col-xs-5 marg-btm"><a class="btn btn-black-default btn-block" href="#all-portfolio" data-portfolio-slide="prev">Previous</a></div>
-      <div class="col-xs-2 marg-btm"><a href="#projects-overview" class="trigger-view">show all</a></div>
-      <div class="col-xs-5 marg-btm"><a class="btn btn-black-default btn-block" href="#all-portfolio" data-portfolio-slide="next">Next</a></div>
+      <div class="text-center mar-top-2">
+        <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="prev">Previous</a>
+        <a href="#projects-overview" class="btn btn-black-default trigger-view">
+          <span class="glyphicon glyphicon-th"></span>
+        </a>
+        <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="next">Next</a>
+      </div>
     </div>
   </div>
 
