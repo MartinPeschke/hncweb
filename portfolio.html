@@ -14,7 +14,7 @@ pagename: portfolio
               <div class="col-md-10 col-md-offset-1">
                 <h3><span>{{ project.projectname }}</span></h3>
               </div>
-              <div class="col-md-8 col-md-offset-2">
+              <div class="col-md-8 col-md-offset-2 mar-top-1">
                 <div id="carousel-{{ project.slug }}" class="carousel slide carousel__mock-content {{ project.slidestyle }}">
 
                   <ol class="carousel-indicators">
@@ -46,8 +46,10 @@ pagename: portfolio
                 </div>
                 {% endif %}
 
-                {{ project.content }}
+                <p class="left-align">{{ project.content }}</p>
 
+                <p class="test-text"><span>"</span>{{ project.quote }}<span>"</span></p>
+                <p class="test-name small no-mar">{{ project.quoteauthor }}</p>
               </div>
             </div>
           </div>
