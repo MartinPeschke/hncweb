@@ -115,7 +115,7 @@
 
   var old = $.fn.portfolio
 
-  $.fn.portfolio = function (option) {
+  $.fn.portfolio = function (option, e) {
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.portfolio')
@@ -124,7 +124,11 @@
 
       if (!data) $this.data('bs.portfolio', (data = new Portfolio(this, options)))
       if (typeof option == 'number') data.to(option)
-      else if (action) data[action]()
+      else if (action && e) {
+            $(e.currentTarget).one("afterScroll", function(){
+                setTimeout(function(){data[action]()}, 100)
+            });
+      }
     })
   }
 
@@ -139,7 +143,7 @@
     var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
     var options = $.extend({}, $target.data(), $this.data())
 
-    $target.portfolio(options)
+    $target.portfolio(options, e)
 
     if (slideIndex = $this.attr('data-slide-portfolio-to')) {
       $(e.currentTarget).one("afterScroll", function(){

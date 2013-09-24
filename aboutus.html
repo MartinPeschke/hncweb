@@ -52,12 +52,11 @@ pagename: aboutus
                     <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img class="img-responsive" src="{{ site.baseurl }}static/img/aboutus/{{ member.mugshot }} "></a>
                   </div>
                   <div class="box-members__label">
-                    <strong>
+                    <strong class="text-upper">
                       {{ member.name }}
                     </strong>
                     <div class="small text-upper">{{ member.position }}</div>
                   </div>
-
               </div>
             {% endfor %}
 
