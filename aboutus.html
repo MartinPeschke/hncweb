@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default_w_contact
 title: Hack and Craft
 pagename: aboutus
@@ -6,11 +6,11 @@ pagename: aboutus
 <div id="all-portfolio" class="carousel portfolio slide">
 
   <div class="l-outer__orange">
+    <div class="l-module container">
 
-    <div class="carousel-inner portfolio-inner">
-      {% for member in site.categories.team %}
-        <div class="{% if forloop.first %}active{% endif %} portfolio item">
-          <div class="l-module container">
+      <div class="carousel-inner portfolio-inner">
+        {% for member in site.categories.team %}
+          <div class="{% if forloop.first %}active{% endif %} portfolio item">
             <div class="row">
               <div class="col-xs-12">
                   <div class="box-members__mugshot">
@@ -19,21 +19,21 @@ pagename: aboutus
                   </div>
               </div>
               <div class="col-md-8 col-md-offset-2">
-                <h2>{{ member.name }}</h2>
+                <h2 class="box-members__name">{{ member.name }}</h2>
                 {{ member.content }}
               </div>
             </div>
           </div>
-        </div>
-      {% endfor %}
-    </div>
+        {% endfor %}
+      </div>
 
-    <div class="text-center mar-top-2">
-      <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="prev">Previous</a>
-      <a href="#projects-overview" class="btn btn-black-default trigger-view">
-        <span class="glyphicon glyphicon-th"></span>
-      </a>
-      <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="next">Next</a>
+      <div class="text-center mar-top-2">
+        <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="prev">previous</a>
+        <a href="#projects-overview" class="btn btn-black-default trigger-view">
+          <span class="glyphicon glyphicon-th"></span>
+        </a>
+        <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="next">next</a>
+      </div>
     </div>
   </div>
 
