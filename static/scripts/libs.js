@@ -98,29 +98,12 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
       })
     }
 
-    if ($.support.transition && this.$element.hasClass('slide')) {
-      this.$element.trigger(e)
-      if (e.isDefaultPrevented()) return
-      $next.addClass(type)
-      $next[0].offsetWidth // force reflow
-      $active.addClass(direction)
-      $next.addClass(direction)
-      $active
-        .one($.support.transition.end, function () {
-          $next.removeClass([type, direction].join(' ')).addClass('active')
-          $active.removeClass(['active', direction].join(' '))
-          that.sliding = false
-          setTimeout(function () { that.$element.trigger('slid') }, 0)
-        })
-        .emulateTransitionEnd(600)
-    } else {
-      this.$element.trigger(e)
-      if (e.isDefaultPrevented()) return
-      $active.removeClass('active')
-      $next.addClass('active')
-      this.sliding = false
-      this.$element.trigger('slid')
-    }
+  this.$element.trigger(e)
+  if (e.isDefaultPrevented()) return
+  $active.removeClass('active')
+  $next.addClass('active')
+  this.sliding = false
+  this.$element.trigger('slid')
 
     return this
   }
@@ -140,11 +123,7 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
 
       if (!data) $this.data('bs.portfolio', (data = new Portfolio(this, options)))
       if (typeof option == 'number') data.to(option)
-      else if (action && e) {
-            $(e.currentTarget).one("afterScroll", function(){
-                setTimeout(function(){data[action]()}, 100)
-            });
-      }
+      else if (action) data[action]()
     })
   }
 
@@ -161,10 +140,8 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
 
     $target.portfolio(options, e)
 
-    if (slideIndex = $this.attr('data-slide-portfolio-to')) {
-      $(e.currentTarget).one("afterScroll", function(){
-            setTimeout(function(){$target.data('bs.portfolio').to(slideIndex)}, 100)
-      });
+    if (slideIndex = $this.attr('data-slide-portfolio-to')){
+        $target.data('bs.portfolio').to(slideIndex)
     }
 
     e.preventDefault()
