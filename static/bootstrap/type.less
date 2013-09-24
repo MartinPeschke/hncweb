@@ -11,10 +11,10 @@ p {
 }
 .lead {
   margin-bottom: @line-height-computed;
-  font-size: 24px;
   font-weight: 700;
   text-transform: upper;
   line-height: 1.4;
+  .text-overflow();
 }
 
 
@@ -125,11 +125,19 @@ h6, .h6 { font-size: @font-size-h6; text-align: left; text-transform: uppercase;
 .page-header {
   color: white;
   font-weight: 400;
-  font-size: 60px;
+  font-size: 40px;
   line-height: 1.5;
   margin-bottom: 60px;
 }
 
+@media (min-width: @screen-xs-min) {
+  .page-header {
+    font-size: 60px;
+  }
+  .lead {
+    font-size: 24px;
+  }
+}
 
 
 // Lists

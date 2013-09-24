@@ -1,7 +1,6 @@
 .l-main-head {
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 70px;
+  padding-bottom: 107px;
   position: relative;
   min-height:800px;
 }
@@ -24,8 +23,8 @@
   color:white;
   text-transform: uppercase;
   font-family: @btn-font-family;
-  margin: 35px auto 60px;
   font-weight: 700;
+  margin: 0 auto;
 }
 .advisor__name {
   text-transform: uppercase;
@@ -44,13 +43,24 @@
 }
 
 
-
+.l-module__section-header {
+  margin:  0 auto;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  background: url('../img/bg_title.png') left center repeat-x;
+  > span {  padding: 0 10px; display: inline-block; }
+}
+.l-outer__gray .l-module__section-header > span{background: #e1e1e2;}
+/* MAIN MODULE WHITE*/
+.l-outer__white .l-module__section-header > span{background: white;}
+/* MAIN MODULE ORANGE*/
+.l-outer__orange .l-module__section-header > span{background: #EB5942;}
 
 .section-heading {
   margin-bottom: 40px;
   .l-module__section-header {
     white-space: nowrap;
-    padding: 0 50px;
+    padding: 0 10px;
     background: none;
     margin-bottom: 0;
     color:@brand-primary;
@@ -64,13 +74,19 @@
 .single-adv {text-align: center;margin-bottom: 40px;}
 
 
+@media (min-width: @screen-xs-min) {
+  .service-label {
+    letter-spacing: @letter-spacing-large;
+    font-size: @font-size-h3 + 1px;
+    margin-top:35px;
+  }
+  .btn {min-width:200px;}
+}
 @media (min-width: @grid-float-breakpoint) {
   .l-main-head {
     padding-top: 150px;
     padding-bottom: 230px;
   }
-  .service-label {
-    letter-spacing: @letter-spacing-large;
-    font-size: @font-size-h3 + 1px;
-  }
+  .l-module__section-header > span {  padding: 0 50px; }
+  .section-heading .l-module__section-header {  padding: 0 50px; }
 }
