@@ -18,13 +18,31 @@ a {
 .l-outer__white {
   background: white;
 }
-
 .l-outer__orange {
-  background: #EB5942;
+  background: @brand-primary;
 }
 .l-outer__black {
   background: black;
 }
+
+/* MAIN HEAD MODULE */
+
+
+.btn-ico__down {
+  position: absolute;
+  background: url('../img/sprite.png') 0 0 no-repeat;
+  display: block;
+  width: 42px;
+  height: 42px;
+  bottom: 40px;
+  left: 50%;
+  margin-left: -21px;
+  text-indent: -9999px;
+}
+.btn-ico__down:hover{
+  background-position: 0 -500px;
+}
+
 
 /* MAIN MODULE */
 
