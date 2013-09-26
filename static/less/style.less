@@ -18,13 +18,29 @@ a {
 .l-outer__white {
   background: white;
 }
-
 .l-outer__orange {
-  background: #EB5942;
+  background: @brand-primary;
 }
 .l-outer__black {
   background: black;
 }
+
+.l-outer__alternating:nth-child(3n){
+  background: @brand-primary;
+  color:black;
+}
+.l-outer__alternating:nth-child(3n+1){
+  background: @brand-gray;
+  color:black;
+}
+.l-outer__alternating:nth-child(3n+2){
+  background: @brand-dark;
+  color:white;
+}
+
+
+
+
 
 /* BUTTONS */
 

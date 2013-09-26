@@ -3,67 +3,16 @@ layout: default_w_contact
 title: Hack & Craft
 pagename: aboutus
 ---
-<div id="all-portfolio" class="carousel portfolio slide">
 
-  <div class="l-outer__orange">
-    <div class="l-module container">
-
-      <div class="carousel-inner portfolio-inner">
-        {% for member in site.categories.team %}
-          <div class="{% if forloop.first %}active{% endif %} portfolio item">
-            <div class="row">
-              <div class="col-xs-12">
-                  <div class="box-members__mugshot">
-                    <img class="img-responsive" src="{{ site.baseurl }}static/img/aboutus/{{ member.mugshot }}" >
-                    <img class="box-members__mugshot-frame" src="{{ site.baseurl }}static/img/aboutus/frame.png">
-                  </div>
-              </div>
-              <div class="col-md-8 col-md-offset-2">
-                <h2 class="box-members__name">{{ member.name }}</h2>
-                {{ member.content }}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-
-      <div class="text-center mar-top-2">
-        <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="prev">previous</a>
-        <a href="#projects-overview" class="btn btn-black-default trigger-view">
-          <span class="glyphicon glyphicon-th"></span>
-        </a>
-        <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="next">next</a>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="l-outer__white" id="overview">
-    <div class="l-module container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h3 class="l-module__section-header" id="members-overview"><span>Our Team</span></h3>
-
-          <div class="row portfolio-indicators">
-            {% for member in site.categories.team %}
-              <div class="col-xs-4 box-members{% if forloop.first %} active{% endif %}">
-                  <div class="box-members__image">
-                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img class="img-responsive" src="{{ site.baseurl }}static/img/aboutus/{{ member.mugshot }} "></a>
-                  </div>
-                  <div class="box-members__label">
-                    <strong class="text-upper">
-                      {{ member.name }}
-                    </strong>
-                    <div class="small text-upper">{{ member.position }}</div>
-                  </div>
-              </div>
-            {% endfor %}
-
-          </div>
+{% for member in site.categories.team %}
+  <div class="l-outer__alternating">
+    <div class="box-members__mugshot" style="background-image: url({{ site.baseurl }}static/img/aboutus/{{ member.mugshot }});">
+      <div class="container">
+        <div class="member-box__content">
+          <h2 class="box-members__name">{{ member.name }}</h2>
+          {{ member.content }}
         </div>
       </div>
     </div>
   </div>
-
-</div>
+{% endfor %}
