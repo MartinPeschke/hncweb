@@ -13,143 +13,39 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
  * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
  */
 (function(t){function l(t){return t.replace(/(:|\.)/g,"\\$1")}var e="1.4.12",o={exclude:[],excludeWithin:[],offset:0,direction:"top",scrollElement:null,scrollTarget:null,beforeScroll:function(){},afterScroll:function(){},easing:"swing",speed:400,autoCoefficent:2,preventDefault:!0},n=function(l){var e=[],o=!1,n=l.dir&&"left"==l.dir?"scrollLeft":"scrollTop";return this.each(function(){if(this!=document&&this!=window){var l=t(this);l[n]()>0?e.push(this):(l[n](1),o=l[n]()>0,o&&e.push(this),l[n](0))}}),e.length||this.each(function(){"BODY"===this.nodeName&&(e=[this])}),"first"===l.el&&e.length>1&&(e=[e[0]]),e};t.fn.extend({scrollable:function(t){var l=n.call(this,{dir:t});return this.pushStack(l)},firstScrollable:function(t){var l=n.call(this,{el:"first",dir:t});return this.pushStack(l)},smoothScroll:function(e){e=e||{};var o=t.extend({},t.fn.smoothScroll.defaults,e),n=t.smoothScroll.filterPath(location.pathname);return this.unbind("click.smoothscroll").bind("click.smoothscroll",function(e){var r=this,s=t(this),c=o.exclude,i=o.excludeWithin,a=0,f=0,h=!0,u={},d=location.hostname===r.hostname||!r.hostname,m=o.scrollTarget||(t.smoothScroll.filterPath(r.pathname)||n)===n,p=l(r.hash);if(o.scrollTarget||d&&m&&p){for(;h&&c.length>a;)s.is(l(c[a++]))&&(h=!1);for(;h&&i.length>f;)s.closest(i[f++]).length&&(h=!1)}else h=!1;h&&(o.preventDefault&&e.preventDefault(),t.extend(u,o,{scrollTarget:o.scrollTarget||p,link:r}),t.smoothScroll(u))}),this}}),t.smoothScroll=function(l,e){var o,n,r,s,c=0,i="offset",a="scrollTop",f={},h={};"number"==typeof l?(o=t.fn.smoothScroll.defaults,r=l):(o=t.extend({},t.fn.smoothScroll.defaults,l||{}),o.scrollElement&&(i="position","static"==o.scrollElement.css("position")&&o.scrollElement.css("position","relative"))),o=t.extend({link:null},o),a="left"==o.direction?"scrollLeft":a,o.scrollElement?(n=o.scrollElement,/^(?:HTML|BODY)$/.test(n[0].nodeName)||(c=n[a]())):n=t("html, body").firstScrollable(o.direction),o.beforeScroll.call(n,o),r="number"==typeof l?l:e||t(o.scrollTarget)[i]()&&t(o.scrollTarget)[i]()[o.direction]||0,f[a]=r+c+o.offset,s=o.speed,"auto"===s&&(s=f[a]||n.scrollTop(),s/=o.autoCoefficent),h={duration:s,easing:o.easing,complete:function(){o.afterScroll.call(o.link,o)}},o.step&&(h.step=o.step),n.length?n.stop().animate(f,h):o.afterScroll.call(o.link,o)},t.smoothScroll.version=e,t.smoothScroll.filterPath=function(t){return t.replace(/^\//,"").replace(/(?:index|default).[a-zA-Z]{3,4}$/,"").replace(/\/$/,"")},t.fn.smoothScroll.defaults=o})(jQuery);
+/*! jQuery visible 1.0.0 teamdf.com/jquery-plugins | teamdf.com/jquery-plugins/license */
+(function(d){d.fn.visible=function(e,i){var a=d(this).eq(0),f=a.get(0),c=d(window),g=c.scrollTop();c=g+c.height();var b=a.offset().top,h=b+a.height();a=e===true?h:b;b=e===true?b:h;return!!(i===true?f.offsetWidth*f.offsetHeight:true)&&b<=c&&a>=g}})(jQuery);
+
++function ($) {
+  var elems = $(".resized")
+  , res = function(h){
+    elems.css({"min-height":h, height:h})
+  };
+  res($(window).height() +"px");
 
 
-+function ($) { "use strict";
+    var onScroll = function(top){
+        var top = $(window).scrollTop(), h = $(window).height();
+        $(".project-slide").each(function(idx, elem){
+            var $el = $(elem);
+            if($el.visible(true)){
+                $el.removeClass("invisible")
+                var ntop = (top - $el.offset().top);
+                if(ntop > -170 && Math.abs(h-ntop) > h/5){
+                    $el.children(".fixed-slide-heading").css({'top': "0px", "position":"fixed"})
+                } else {
+                    $el.children(".fixed-slide-heading").css({'top': ntop + "px", "position":"absolute"})
+                }
 
-  // PORTFOLIO CLASS DEFINITION
-  // =========================
-
-  var Portfolio = function (element, options) {
-    this.$element    = $(element)
-    this.$indicators = this.$element.find('.portfolio-indicators')
-    this.options     = options
-    this.paused      =
-    this.sliding     =
-    this.$active     =
-    this.$items      = null
-  }
-
-  Portfolio.DEFAULTS = {
-    pause: 'hover'
-  , wrap: true
-  }
-
-  Portfolio.prototype.getActiveIndex = function () {
-    this.$active = this.$element.find('.portfolio.item.active')
-    this.$items  = this.$active.parent().children()
-
-    return this.$items.index(this.$active)
-  }
-
-  Portfolio.prototype.to = function (pos) {
-    var that        = this
-    var activeIndex = this.getActiveIndex()
-
-    if (pos == activeIndex || pos > (this.$items.length - 1) || pos < 0) return
-
-    if (this.sliding)       return this.$element.one('slid', function () { that.to(pos) })
-    return this.slide(pos > activeIndex ? 'next' : 'prev', $(this.$items[pos]))
-  }
-
-  Portfolio.prototype.pause = function (e) {
-    e || (this.paused = true)
-
-    if (this.$element.find('.next, .prev').length && $.support.transition.end) {
-      this.$element.trigger($.support.transition.end)
+            } else {
+                $el.addClass("invisible")
+            }
+        });
     }
 
-    return this
-  }
-
-  Portfolio.prototype.next = function () {
-    if (this.sliding) return
-    return this.slide('next')
-  }
-
-  Portfolio.prototype.prev = function () {
-    if (this.sliding) return
-    return this.slide('prev')
-  }
-
-  Portfolio.prototype.slide = function (type, next) {
-    var $active   = this.$element.find('.portfolio.item.active')
-    var $next     = next || $active[type]()
-    var direction = type == 'next' ? 'left' : 'right'
-    var fallback  = type == 'next' ? 'first' : 'last'
-    var that      = this
-
-    if (!$next.length) {
-      if (!this.options.wrap) return
-      $next = this.$element.find('.portfolio.item')[fallback]()
-    }
-
-    this.sliding = true
-
-    var e = $.Event('slide.bs.portfolio', { relatedTarget: $next[0], direction: direction })
-
-    if ($next.hasClass('active')) return
-
-    if (this.$indicators.length) {
-      this.$indicators.find('.active').removeClass('active')
-      this.$element.one('slid', function () {
-        var $nextIndicator = $(that.$indicators.children()[that.getActiveIndex()])
-        $nextIndicator && $nextIndicator.addClass('active')
-      })
-    }
-
-  this.$element.trigger(e)
-  if (e.isDefaultPrevented()) return
-  $active.removeClass('active')
-  $next.addClass('active')
-  this.sliding = false
-  this.$element.trigger('slid')
-
-    return this
-  }
-
-
-  // PORTFOLIO PLUGIN DEFINITION
-  // ==========================
-
-  var old = $.fn.portfolio
-
-  $.fn.portfolio = function (option, e) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.portfolio')
-      var options = $.extend({}, Portfolio.DEFAULTS, $this.data(), typeof option == 'object' && option)
-      var action  = typeof option == 'string' ? option : options.portfolioSlide
-
-      if (!data) $this.data('bs.portfolio', (data = new Portfolio(this, options)))
-      if (typeof option == 'number') data.to(option)
-      else if (action) data[action]()
-    })
-  }
-
-  $.fn.portfolio.Constructor = Portfolio
-
-
-  // PORTFOLIO DATA-API
-  // =================
-
-  $(document).on('click.bs.portfolio.data-api', '[data-portfolio-slide], [data-slide-portfolio-to]', function (e) {
-    var $this   = $(this), href, slideIndex;
-    var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
-    var options = $.extend({}, $target.data(), $this.data())
-
-    $target.portfolio(options, e)
-
-    if (slideIndex = $this.attr('data-slide-portfolio-to')){
-        $target.data('bs.portfolio').to(slideIndex)
-    }
-
-    e.preventDefault()
-  })
-
-  $('a').smoothScroll({offset: -100,easing: 'swing', speed: 200
-        , afterScroll: function(){
-            $(this).trigger("afterScroll", this);
-      }
-  });
+    $(window).on({
+        'resize': function(e){res($(window).height() +"px")}
+        , 'scroll': onScroll
+    });
+    onScroll();
 }(window.jQuery);
