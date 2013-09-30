@@ -1,21 +1,12 @@
-.project-container {
-  position: relative;
-}
-.project-blur {
-  background-color: #5f231c;
-  color:white;
-  z-index:10;
-  position: relative;
-}
+@aspectRatio: 526 / 812;
 
-.project-slide {
+.resized{
   min-height:1200px;
   position: relative;
   overflow:hidden;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
 }
+
+.project-slide .section-heading {margin-top:50px;}
 .project-slide-0{
   background-color: @brand-primary;
   color:black;
@@ -28,26 +19,90 @@
   background-color: @brand-dark;
   color:white;
 }
+
+
 .fixed-slide-heading {
-  position: absolute;
-  padding-top: 60px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: static;
+  display:none;
+}
+.project-blur {
+  background-color: #5f231c;
+  color:white;
+  > .container {
+    z-index:10;
+    position: relative;
+  }
+  .l-module__section-header {color: white; }
+  .line {border-color:white; border-width:2px;}
 }
 .slide-heading-0 {
   .l-module__section-header {color: white; }
-  .line {border-color:@brand-gray; }
+  .line {border-color:white; border-width:2px;}
 }
 .slide-heading-1 {
  .l-module__section-header {color: @brand-dark;}
-  .line {border-color:@brand-dark; }
+  .line {border-color:@brand-dark; border-width:2px;}
 }
 .slide-heading-2 {
   .l-module__section-header  {color: @brand-primary;}
-  .line {border-color:@brand-primary; }
+  .line {border-color:@brand-primary; border-width:2px;}
 }
+
+.project-slide-picture {
+  width:95%;
+  height:0;
+  margin: 0px auto;
+  padding-bottom: @aspectRatio * 100%;
+  position: static;
+  background-position: center center;
+  background-size: contain;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  overflow:hidden;
+  z-index:0;
+}
+.project-blur .project-slide-picture {display: none;}
+
+@media (min-width: @grid-float-breakpoint) {
+  .project-slide-picture {
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background-size: auto;
+    background-attachment: fixed;
+    background-position: center 160px;
+  }
+  .project-blur .project-slide-picture {display: block;}
+
+  .fixed-slide-heading {
+    position: absolute;
+    display:block;
+    padding-top: 60px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &.heading-fixed {position: fixed;}
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .test-name.no-mar {margin-bottom: 0;}
@@ -127,8 +182,3 @@
 }
 
 
-@media (min-width: @grid-float-breakpoint) {
-  .carousel__phone {
-    right: -5%;
-  }
-}

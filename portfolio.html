@@ -5,36 +5,47 @@ pagename: portfolio
 ---
 
 {% for project in site.categories.portfolio %}
-    <div class="project-blur project-slide resized" style="background-image:url({{ site.baseurl }}static/img/projects2/{{ project.blur }});">
-      <div class="l-module container">
+    <div class="project-slide project-blur resized" style="z-index:100;">
+
+      <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-            <table class="section-heading"><tr><td width="50%" class="bg"></td><td>
+
+            <table class="section-heading"><tr><td width="50%"><hr class="line"></td><td>
               <h3 class="l-module__section-header" >{{ project.projectname }}</h3>
-            </td><td width="50%" class="bg"></td></tr></table>
+            </td><td width="50%"><hr class="line"></td></tr></table>
+
             <p class="text-left">{{ project.content }}</p>
             {% if project.website %}
             <div class="text-center marg-btm">
               <a target="_blank" href="{{ project.website }}" class="btn btn-black-default marg-btm">visit the site</a>
             </div>
             {% endif %}
+
           </div>
         </div>
       </div>
+      <div class="project-slide-picture" style="background-image:url({{ site.baseurl }}static/img/projects2/{{ project.blur }});"></div>
     </div>
+
     {% for slide in project.slides %}
-      <div class="project-slide resized project-slide-{{ forloop.index0 }}" style="background-image: url({{ site.baseurl }}static/img/projects2/{{ slide }});">
-        <div class="fixed-slide-heading slide-heading-{{ forloop.index0 }}" style="z-index:{{ 10|minus:forloop.index }};">
-          <div class="l-module container">
+      <div class="resized project-slide project-slide-{{ forloop.index0 }}">
+
+        <div class="fixed-slide-heading slide-heading-{{ forloop.index0 }}" style="z-index:{{ 50|minus:forloop.index }};">
+          <div class="container">
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                  <table class="section-heading"><tr><td width="50%"><hr class="line"></td><td>
+                <table class="section-heading"><tr><td width="50%"><hr class="line"></td><td>
                   <h3 class="l-module__section-header" >{{ project.projectname }}</h3>
                 </td><td width="50%"><hr class="line"></td></tr></table>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="project-slide-picture" style="background-image: url({{ site.baseurl }}static/img/projects2/{{ slide }});"></div>
+
       </div>
     {% endfor %}
+
 {% endfor %}

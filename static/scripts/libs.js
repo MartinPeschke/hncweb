@@ -17,35 +17,30 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
 (function(d){d.fn.visible=function(e,i){var a=d(this).eq(0),f=a.get(0),c=d(window),g=c.scrollTop();c=g+c.height();var b=a.offset().top,h=b+a.height();a=e===true?h:b;b=e===true?b:h;return!!(i===true?f.offsetWidth*f.offsetHeight:true)&&b<=c&&a>=g}})(jQuery);
 
 +function ($) {
-  var elems = $(".resized")
-  , res = function(h){
-    elems.css({"min-height":h, height:h})
-  };
-  res($(window).height() +"px");
-
-
-    var onScroll = function(top){
-        var top = $(window).scrollTop(), h = $(window).height();
-        $(".project-slide").each(function(idx, elem){
-            var $el = $(elem);
-            if($el.visible(true)){
-                $el.removeClass("invisible")
-                var ntop = (top - $el.offset().top);
-                if(ntop > -170 && Math.abs(h-ntop) > h/5){
-                    $el.children(".fixed-slide-heading").css({'top': "0px", "position":"fixed"})
+    var elems = $(".resized")
+        , onScroll = function(top){
+            var top = $(window).scrollTop(), h = $(window).height();
+            $(".project-slide").each(function(idx, elem){
+                var $el = $(elem);
+                if($el.visible(true)){
+                    $el.removeClass("invisible")
+                    var ntop = (top - $el.offset().top);
+                    if(ntop/h < .85){
+                        $el.children(".fixed-slide-heading").addClass("heading-fixed").css({'top': "0px"});
+                    } else {
+                        $el.children(".fixed-slide-heading").removeClass("heading-fixed").css({'top': ntop + "px"});
+                    }
                 } else {
-                    $el.children(".fixed-slide-heading").css({'top': ntop + "px", "position":"absolute"})
+                    $el.addClass("invisible")
                 }
+            });
+        }
+        , res = function(h, w){
+            elems.css({"min-height":(w<768)?'0px':(h+"px")})
+            onScroll();
+        };
 
-            } else {
-                $el.addClass("invisible")
-            }
-        });
-    }
-
-    $(window).on({
-        'resize': function(e){res($(window).height() +"px")}
-        , 'scroll': onScroll
-    });
+    $(window).on({'scroll': onScroll, 'resize': function(e){res($(window).height(), $(window).width())}});
+    res($(window).height());
     onScroll();
 }(window.jQuery);
