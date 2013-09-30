@@ -4,15 +4,44 @@ title: Hack & Craft
 pagename: aboutus
 ---
 
+<div id="position-indicator">
+  <ul class="nav position-indicator">
+  {% for member in site.categories.team %}
+    <li class="indicator"><a href="#{{ member.slug }}" class="indicator-link"></a></li>
+  {% endfor %}
+  </ul>
+</div>
+
+
 {% for member in site.categories.team %}
-  <div class="l-outer__alternating">
-    <div class="box-members__mugshot" style="background-image: url({{ site.baseurl }}static/img/aboutus/{{ member.mugshot }});">
-      <div class="container">
-        <div class="member-box__content">
-          <h2 class="box-members__name">{{ member.name }}</h2>
-          {{ member.content }}
+  <div class="aboutus-slide aboutus-blur resized" style="z-index:60;" id="{{ member.slug }}">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="member-box__content">
+            <h2 class="box-members__name">{{ member.name }}</h2>
+            <div class="box-members__position">{{ member.position }}</div>
+            {{ member.content }}
+          </div>
         </div>
       </div>
     </div>
+    <div class="box-members__mugshot" style="background-image: url({{ site.baseurl }}static/img/aboutus/{{ member.mugshotblur }});"></div>
+
   </div>
+
+  <div class="aboutus-slide resized">
+    <div class="aboutus-fixed">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+              <h2 class="box-members__name">{{ member.name }}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="box-members__mugshot" style="background-image: url({{ site.baseurl }}static/img/aboutus/{{ member.mugshot }});"></div>
+    </div>
+  </div>
+
 {% endfor %}

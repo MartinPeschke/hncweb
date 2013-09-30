@@ -17,10 +17,13 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
 (function(d){d.fn.visible=function(e,i){var a=d(this).eq(0),f=a.get(0),c=d(window),g=c.scrollTop();c=g+c.height();var b=a.offset().top,h=b+a.height();a=e===true?h:b;b=e===true?b:h;return!!(i===true?f.offsetWidth*f.offsetHeight:true)&&b<=c&&a>=g}})(jQuery);
 
 +function ($) {
-    var elems = $(".resized")
+    var $resizers = $(".resized")
+        , $portfolio = $(".project-slide")
+        , $aboutus = $(".aboutus-slide")
+
         , onScroll = function(top){
             var top = $(window).scrollTop(), h = $(window).height();
-            $(".project-slide").each(function(idx, elem){
+            $portfolio.each(function(idx, elem){
                 var $el = $(elem);
                 if($el.visible(true)){
                     $el.removeClass("invisible")
@@ -34,13 +37,24 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
                     $el.addClass("invisible")
                 }
             });
+
+            $aboutus.each(function(idx, elem){
+                var $el = $(elem);
+                $el.children(".aboutus-fixed")[top+h >= $el.offset().top?'addClass':'removeClass']("fixed");
+            });
         }
         , res = function(h, w){
-            elems.css({"min-height":(w<768)?'0px':(h+"px")})
+            $resizers.css({"min-height":(w<768)?'0px':(h+"px")})
             onScroll();
         };
 
-    $(window).on({'scroll': onScroll, 'resize': function(e){res($(window).height(), $(window).width())}});
-    res($(window).height());
-    onScroll();
+    if($("#position-indicator").length){
+        res($(window).height());
+        $('body').scrollspy({ target: '#position-indicator', offset:101 });
+        $(window).on({'scroll': onScroll, 'resize': function(e){res($(window).height(), $(window).width())}});
+        onScroll();
+    }
+
+    $('a').smoothScroll({offset: -100,easing: 'swing', speed: "400"});
+
 }(window.jQuery);
