@@ -3,56 +3,92 @@ layout: default_w_contact
 title: Hack & Craft
 pagename: portfolio
 ---
-<div id="position-indicator">
-  <ul class="nav position-indicator">
-  {% for project in site.categories.portfolio %}
-    <li class="indicator"><a href="#{{ project.slug }}" class="indicator-link"></a></li>
-  {% endfor %}
-  </ul>
-</div>
-
-{% for project in site.categories.portfolio %}
-    <div class="project-slide project-blur resized" style="z-index:60;" id="{{ project.slug }}">
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-
-            <table class="section-heading"><tr><td width="50%"><hr class="line"></td><td>
-              <h3 class="l-module__section-header" >{{ project.projectname }}</h3>
-            </td><td width="50%"><hr class="line"></td></tr></table>
-
-            <p class="text-left">{{ project.content }}</p>
-            {% if project.website %}
-            <div class="text-center marg-btm">
-              <a target="_blank" href="{{ project.website }}" class="btn btn-black-white marg-btm">visit the site</a>
-            </div>
-            {% endif %}
-
-          </div>
-        </div>
-      </div>
-      <div class="project-slide-picture" style="background-image:url({{ site.baseurl }}static/img/projects/{{ project.blur }});"></div>
-    </div>
-
-    {% for slide in project.slides %}
-      <div class="resized project-slide project-slide-{{ forloop.index0 }}">
-
-        <div class="fixed-slide-heading slide-heading-{{ forloop.index0 }}" style="z-index:{{ 50|minus:forloop.index }};">
-          <div class="container">
+<div id="all-portfolio" class="carousel portfolio slide">
+  <div class="l-outer__orange">
+    <div class="l-module container">
+      <div class="carousel-inner portfolio-inner">
+        {% for project in site.categories.portfolio %}
+          <div class="{% if forloop.first %}active{% endif %} portfolio item">
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                <table class="section-heading"><tr><td width="50%"><hr class="line"></td><td>
-                  <h3 class="l-module__section-header" >{{ project.projectname }}</h3>
-                </td><td width="50%"><hr class="line"></td></tr></table>
+                <h3 class="l-module__section-header" ><span>{{ project.projectname }}</span></h3>
+              </div>
+              <div class="col-sm-8 col-sm-offset-2 mar-top-1">
+                <div id="carousel-{{ project.slug }}" class="carousel slide carousel__mock-content {{ project.slidestyle }}">
+
+                  <ol class="carousel-indicators">
+                    {% for slide in project.slides %}
+                      <li data-target="#carousel-{{ project.slug }}" data-slide-to="{{ forloop.index0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+                    {% endfor %}
+                  </ol>
+
+                  <div class="carousel-inner">
+                    {% for slide in project.slides %}
+                    <div class="{% if forloop.first %}active{% endif %} item"><img src="{{ site.baseurl }}static/img/projects/{{ slide }}" ></div>
+                    {% endfor %}
+                  </div>
+
+                  {%  if project.slidestyle == 'iphone4' %}
+                    <img src="{{ site.baseurl }}static/img/projects/iphone4_frame.png" class="carousel__mock-frame"/>
+                  {%  else %}
+                    <img src="{{ site.baseurl }}static/img/projects/frame.png" class="carousel__mock-frame"/>
+                  {%  endif %}
+
+                  {% if project.phone %}
+                    <img class="carousel__phone" src="{{ site.baseurl }}static/img/projects/{{ project.phone }}">
+                  {% endif %}
+                </div>
+
+                {% if project.website %}
+                <div class="text-center marg-btm">
+                  <a target="_blank" href="{{ project.website }}" class="btn btn-black-default marg-btm">visit the site</a>
+                </div>
+                {% endif %}
+
+                <p class="text-left">{{ project.content }}</p>
+
+                 {% if project.quote %}
+                  <p class="test-text mar-top-2"><span>"</span>{{ project.quote }}<span>"</span></p>
+                  <p class="test-name small no-mar">{{ project.quoteauthor }}</p>
+                {%  endif %}
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="project-slide-picture" style="background-image: url({{ site.baseurl }}static/img/projects/{{ slide }});"></div>
-
+        {% endfor %}
       </div>
-    {% endfor %}
 
-{% endfor %}
+      <div class="text-center mar-top-2">
+        <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="prev">Previous</a>
+        <a href="#projects-overview" class="btn btn-black-default trigger-view">
+          <span class="glyphicon glyphicon-th"></span>
+        </a>
+        <a class="btn btn-black-default" href="#all-portfolio" data-portfolio-slide="next">Next</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="l-outer__white" id="overview">
+    <div class="l-module container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h3 class="l-module__section-header" id="projects-overview"><span>Portfolio</span></h3>
+
+          <div class="row portfolio-indicators">
+            {% for project in site.categories.portfolio %}
+              <div class="col-xs-6 col-sm-4 box-projects{% if forloop.first %} active{% endif %}">
+                  <div class="box-projects__image">
+                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img class="img-responsive" src="{{ site.baseurl }}static/img/projects/indicator_{{ project.slug }}.jpg"></a>
+                  </div>
+                  <div class="box-projects__label">{{ project.projectname }}</div>
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

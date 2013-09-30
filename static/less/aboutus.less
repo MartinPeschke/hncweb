@@ -1,74 +1,21 @@
-.aboutus-blur {
-  background-color: #5f231c;
-  color:white;
-  > .box-members__mugshot {display:none;}
-}
-
-.member-box__content {
-  padding-top: 60px;
-  padding-bottom: @line-height-computed;
-  color: inherit;
-  position: relative;
-  z-index: 2;
-}
-.aboutus-fixed {
- background-color: @brand-primary;
- padding:30px;
- >.container {display: none;}
+.box-members {
+  margin-bottom:50px;
 }
 .box-members__mugshot {
-  width:95%;
-  height:0;
-  margin: 0px auto;
-  padding-bottom: @aspectRatio * 100%;
-  position: static;
-  background-position: center center;
-  background-size: contain;
-  background-attachment: scroll;
-  background-repeat: no-repeat;
-  overflow:hidden;
-  z-index:0;
+  position: relative;
+  max-width:35.5%;
+  margin: 0px auto 6%;
 }
-
-
-@media (min-width: @grid-float-breakpoint) {
-  .aboutus-blur > .box-members__mugshot {display:block;}
-  .box-members__mugshot {
-    position: absolute;
-    top:0;
-    left:0;
-    height:100%;
-    width:100%;
-    background-size: auto;
-    background-attachment: fixed;
-    background-position: center 140px;
-  }
-  .aboutus-fixed{
-    position: absolute;
-    z-index:0;
-    padding:0;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    &.fixed {position: fixed;}
-    >.container {display: block;margin-top:120px;}
-  }
-  .aboutus-blur .box-members__mugshot {display: block;}
+.box-members__mugshot-frame{
+  position: absolute;
+  top:0;
+  left:-17%;
+  width:117%;
+  height:auto;
 }
-
-
-
-
-
 .box-members__name {
   text-transform: uppercase;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.box-members__position {
-  color:white;
-  text-align: center;
+  margin-top: 2* @line-height-computed;
   margin-bottom: @line-height-computed;
 }
 .box-members__label{
@@ -77,5 +24,20 @@
   > .small {
     line-height: 22px;
 
+  }
+}
+
+.active .box-members__image{
+  position: relative;
+  &:after{
+    content:".";
+    color:transparent;
+    background-color: @brand-primary;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    .opacity(.6);
+    position: absolute;
   }
 }
