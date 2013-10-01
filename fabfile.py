@@ -25,7 +25,7 @@ def build(env, version):
     lrun("jekyll build")
     path = get_deploy_path(env, version)
     run("mkdir -p {}".format(path))
-    put("_site", path)
+    put("_site/*", path)
 
 def switch(env, version):
     environment_path = get_deploy_path(env)
