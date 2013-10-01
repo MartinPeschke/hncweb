@@ -5,4 +5,4 @@
 rvm use 1.9.3
 
 set -ex
-fab -H bellerophon -u www-data deploy:env=dev
+fab -H bellerophon -u www-data deploy:env=$1
