@@ -6,3 +6,5 @@ pygments: true
 
 project_name: Hack & Craft
 cache_token: 201309240001
+
+exclude: [fabfile.*,Gemfile, README]

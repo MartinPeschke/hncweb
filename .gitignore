@@ -6,7 +6,7 @@ start.bat
 
 # C extensions
 *.so
-
+*.pyc
 # Packages
 *.egg
 *.egg-info
