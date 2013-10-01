@@ -47,7 +47,7 @@ pagename: aboutus
             {% for member in site.categories.team %}
               <div class="col-xs-4 box-members{% if forloop.first %} active{% endif %}">
                   <div class="box-members__image">
-                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img class="img-responsive" src="{{ site.baseurl }}static/img/aboutus/{{ member.mugshot }} "></a>
+                    <a href="#all-portfolio" data-slide-portfolio-to="{{ forloop.index0 }}"><img class="img-responsive" src="{{ site.baseurl }}static/img/aboutus/{{ member.mugshot }}"></a>
                   </div>
                   <div class="box-members__label">
                     <strong class="text-upper">

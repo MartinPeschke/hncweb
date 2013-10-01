@@ -32,6 +32,10 @@ def switch(env, version):
     with cd(environment_path):
         run("rm current;ln -s {} current".format(version))
 
+def checkURLs(domain):
+    result = lrun('linkchecker --no-status -a -ohtml http://{0}'.format(domain))
+
+
 def deploy(env):
   VERSION_TOKEN = datetime.now().strftime("%Y%m%d-%H%M%S-%f")[:-3]
   build(env, VERSION_TOKEN)
