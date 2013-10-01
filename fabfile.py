@@ -27,6 +27,10 @@ def build(env, version):
     run("mkdir -p {}".format(path))
     put("_site/*", path)
 
+    with cd(path):
+        run("~/node_modules/less/bin/lessc static/less/site.less --yui-compress static/css/site.min.css")
+
+
 def switch(env, version):
     environment_path = get_deploy_path(env)
     with cd(environment_path):
