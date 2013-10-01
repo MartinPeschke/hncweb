@@ -1,0 +1,8 @@
+#!/bin/bash
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+rvm use 1.9.3
+
+set -ex
+fab -H bellerophon -u www-data deploy:env=dev
