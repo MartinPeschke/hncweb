@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'hnc';
+    src: url('@{icon-font-path}hackandcraft-webfont.eot');
+    src: url('@{icon-font-path}hackandcraft-webfont.eot?#iefix') format('embedded-opentype'),
+         url('@{icon-font-path}hackandcraft-webfont.woff') format('woff'),
+         url('@{icon-font-path}hackandcraft-webfont.ttf') format('truetype'),
+         url('@{icon-font-path}hackandcraft-webfont.svg#hack__crahackcrafticonography') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.hnc-icon {
+  position: relative;
+  color:inherit;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  font-family: hnc;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  &:empty{
+    width: 1em;
+  }
+}
+a.hnc-icon:hover {
+  text-decoration: none;
+  color:inherit;
+}
+.hnc-icon-fb{ &:before{content:"b";} &:hover:before{content:"B";} }
+.hnc-icon-tw{ &:before{content:"c";} &:hover:before{content:"C";} }
+.hnc-icon-sk{ &:before{content:"d";} &:hover:before{content:"D";} }
+.hnc-icon-arrowleft{ &:before{content:"q";color:rgba(255,255,255,.5);} &:hover:before{color:white;} }
+.hnc-icon-arrowright{ &:before{content:"r";color:rgba(255,255,255,.5);} &:hover:before{color:white;} }
+

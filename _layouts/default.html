@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700|PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700|PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}static/css/site.min.css?v={{ 'now' | date: "%Y%m%d%H%M" }}">
     <!--[if lt IE 9]><script src="{{ site.baseurl }}static/scripts/ie.min.js"></script><![endif]-->
   </head>
@@ -16,8 +16,8 @@
             <li class="{% if page.pagename == 'methodology' %}active{% endif %}"><a href="{{ site.baseurl }}methodology.html">Methodology</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-left">
-            <li class="{% if page.pagename == 'portfolio' %}active{% endif %}"><a href="{{ site.baseurl }}portfolio.html">Portfolio</a></li>
-            <li class="{% if page.pagename == 'aboutus' %}active{% endif %}"><a href="{{ site.baseurl }}aboutus.html">About Us</a></li>
+            <li class="{% if page.pagename == 'portfolio' %}active{% endif %}"><a href="{{ site.baseurl }}portfolio/bradswine.html">Case Studies</a></li>
+            <li class="{% if page.pagename == 'aboutus' %}active{% endif %}"><a href="{{ site.baseurl }}aboutus.html">Management Team</a></li>
           </ul>
           <div class="navbar-header">
               <a class="navbar-brand" href="{{ site.baseurl }}">Hack & Craft</a>

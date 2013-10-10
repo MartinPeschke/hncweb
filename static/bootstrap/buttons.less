@@ -49,8 +49,22 @@
     pointer-events: none; // Future-proof disabling of clicks
     .opacity(.65);
   }
-
 }
+
+.btn-project {
+  position: relative;
+  display: inline-block;
+  width:225px;
+  height:125px;
+  text-indent:-999em;
+  overflow:hidden;
+  background-image: url("../img/projbtns.png");
+  margin: 0 10px;
+}
+.btn-project-bradswine {background-position: 0 -125px; &:hover{background-position: 0 0;}}
+.btn-project-friendfund {background-position: -225px -125px; &:hover{background-position: -225px 0;}}
+.btn-project-gymondo {background-position: -450px -125px; &:hover{background-position: -450px 0;}}
+
 
 
 // Alternate buttons
@@ -69,6 +83,10 @@
 .btn-black-primary {
   .button-variant(@btn-primary-black-color; @btn-primary-black-bg; @btn-primary-black-border);
 }
+.btn-black-white {
+  .button-variant(@btn-black-white-color; @btn-black-white-bg; @btn-black-white-border);
+}
+
 
 // Warning appears as orange
 .btn-warning {

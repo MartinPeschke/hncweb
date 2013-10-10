@@ -1,0 +1,41 @@
+---
+layout: default
+title: Hack & Craft
+pagename: portfolio
+---
+
+<div class="l-outer__orange">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 portfolio-top">
+        <div class="portfolio-nav">
+          <a href="{{ page.prev }}" title="Previous Project" class="hnc-icon hnc-icon-arrowleft"> </a>
+          <a href="{{ page.next }}" title="Next Project" class="hnc-icon hnc-icon-arrowright"> </a>
+        </div>
+        <h1 class="page-header text-upper">{{ page.projectname }}</h1>
+        <p class="text-left">{{ page.description }}</p>
+
+        {% if page.website %}
+          <div class="text-center mar-top-4">
+            <a target="_blank" href="{{ page.website }}" class="btn btn-black-white marg-btm">visit the site</a>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ content }}
+
+
+<div class="l-outer-section l-outer__black footer">
+  <div class="l-module container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3 class="l-mini__section-header" ><span> we'd love to hear from you</span></h3>
+        {% include contact_data.html %}
+      </div>
+    </div>
+  </div>
+</div>
