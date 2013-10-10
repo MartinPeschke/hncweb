@@ -14,13 +14,8 @@
   min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: @navbar-margin-bottom;
   border: 1px solid transparent;
-
   // Prevent floats from breaking the navbar
   .clearfix();
-
-  @media (min-width: @grid-float-breakpoint) {
-    border-radius: @navbar-border-radius;
-  }
 }
 
 
@@ -111,13 +106,6 @@
 // Display the navbar across the entirity of the page or fixed it to the top or
 // bottom of the page.
 
-// Static top (unfixed, but 100% wide) navbar
-.navbar-static-top {
-  @media (min-width: @grid-float-breakpoint) {
-    border-radius: 0;
-  }
-}
-
 // Fix the top/bottom navbars when screen real estate supports it
 @media (min-width: @grid-float-breakpoint) {
   .navbar-fixed-top,
@@ -125,9 +113,10 @@
     position: fixed;
     right: 0;
     left: 0;
-    border-radius: 0;
   }
   body {padding-top:@navbar-height;}
+  .navbar.affix-top {background-color: @brand-primary;border-bottom-color:@brand-primary;}
+  .navbar.affix {background-color: #000;}
 }
 .navbar-fixed-top {
   z-index: @zindex-navbar-fixed;
@@ -169,7 +158,6 @@
   .navbar-vertical-align(34px);
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: @border-radius-base;
 
   // Bars
   .icon-bar {
@@ -300,11 +288,6 @@
 // Menu position and menu carets
 .navbar-nav > li > .dropdown-menu {
   margin-top: 0;
-  .border-top-radius(0);
-}
-// Menu position and menu caret support for dropups via extra dropup class
-.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
-  .border-bottom-radius(0);
 }
 
 // Right aligned menus need alt position

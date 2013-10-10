@@ -29,4 +29,13 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
       }
     });
 
+    if($(".navbar-switcher").length)
+        $('.navbar-fixed-top').affix({
+            offset: {
+              top: function () {
+                return $(".navbar-switcher").outerHeight();
+              }
+            }
+        })
+
 }(window.jQuery);
