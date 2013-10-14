@@ -50,7 +50,6 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
                 , ratio = (wTop - aTop) / aH;
 
             children.each(function(idx, elem){
-                console.log(ratio, (idx+1)/count);
                 if( (idx+1)/count < ratio)
                     $(elem).removeClass('notshown').addClass('shown')
                 else

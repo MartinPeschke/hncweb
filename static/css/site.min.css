@@ -5739,9 +5739,6 @@ body.modal-open,
   background-color: transparent;
   border: 0;
 }
-.affix {
-  position: fixed;
-}
 @-ms-viewport {
   width: device-width;
 }
@@ -6403,7 +6400,7 @@ span.title {
 .methodology-animation {
   position: relative;
   height: 0;
-  padding-bottom: 83%;
+  padding-bottom: 90%;
 }
 .methodology-animation > .img-responsive {
   left: 8.5%;
