@@ -6548,9 +6548,15 @@ span.title {
   font-size: 40px;
   color: white;
   text-align: center;
+  margin-bottom: 60px;
 }
 .portfolio-nav > .hnc-icon {
-  margin: 0 20px;
+  margin: 10px 20px 0;
+}
+.portfolio-nav > .page-header {
+  margin-top: 0;
+  line-height: 1em;
+  display: inline;
 }
 .portfolio-text {
   padding-top: 12px;
