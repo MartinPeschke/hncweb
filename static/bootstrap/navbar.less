@@ -182,7 +182,8 @@
 // the nav the full height of the horizontal nav (above 768px).
 
 .navbar-nav {
-  > li { float: left;}
+  text-align: center;
+  > li { display: inline-block; vertical-align: top;}
   > li > a {
     padding-top:    10px;
     padding-bottom: 10px;
@@ -237,10 +238,9 @@
 // Repurpose the pull utilities as their own navbar utilities to avoid specifity
 // issues with parents and chaining. Only do this when the navbar is uncollapsed
 // though so that navbar contents properly stack and align in mobile.
-.navbar-right { .pull-left(); }
 @media (min-width: @grid-float-breakpoint) {
-  .navbar-left  { .pull-left(); }
-  .navbar-right { .pull-right(); }
+  .navbar-left  { .pull-left(); text-align: left;  display: block;}
+  .navbar-right { .pull-right(); text-align: right;  display: block;}
 }
 
 

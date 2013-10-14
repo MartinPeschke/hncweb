@@ -4,6 +4,9 @@
 .mailto-link:hover {
   color: inherit;
 }
+.mar-top {
+  margin-top: 15px;
+}
 .mar-top-1 {
   margin-top: 30px;
 }
@@ -3760,7 +3763,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   position: relative;
   z-index: 1000;
   min-height: 60px;
-  margin-bottom: 30px;
+  margin-bottom: 0;
   border: 1px solid transparent;
 }
 .navbar:before,
@@ -3950,8 +3953,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
     display: none;
   }
 }
+.navbar-nav {
+  text-align: center;
+}
 .navbar-nav > li {
-  float: left;
+  display: inline-block;
+  vertical-align: top;
 }
 .navbar-nav > li > a {
   padding-top: 10px;
@@ -3993,15 +4000,16 @@ textarea.input-group-sm > .input-group-btn > .btn {
     padding-bottom: 17px;
   }
 }
-.navbar-right {
-  float: left !important;
-}
 @media (min-width: 768px) {
   .navbar-left {
     float: left !important;
+    text-align: left;
+    display: block;
   }
   .navbar-right {
     float: right !important;
+    text-align: right;
+    display: block;
   }
 }
 .navbar-form {
@@ -6457,21 +6465,21 @@ span.title {
   vertical-align: bottom;
   margin-top: -0.5em;
 }
-.l-outer__black .l-mini__section-header {
+.l-outer__black .l-mini__section-header,
+.l-outer__dark .l-mini__section-header {
   background-color: white;
 }
-.l-outer__black .l-mini__section-header > span {
+.l-outer__black .l-mini__section-header > span,
+.l-outer__dark .l-mini__section-header > span {
   background: black;
   color: white;
 }
 .l-outer__gray .l-module__section-header > span {
   background: #e1e1e2;
 }
-/* MAIN MODULE WHITE*/
 .l-outer__white .l-module__section-header > span {
   background: white;
 }
-/* MAIN MODULE ORANGE*/
 .l-outer__orange .l-module__section-header > span {
   background: #EB5942;
 }
@@ -6508,7 +6516,7 @@ span.title {
 @media (min-width: 768px) {
   .l-main-head {
     padding-top: 150px;
-    padding-bottom: 230px;
+    padding-bottom: 130px;
   }
   .l-module__section-header > span {
     padding: 0 50px;
