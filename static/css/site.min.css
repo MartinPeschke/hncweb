@@ -416,6 +416,9 @@ cite {
 .text-center {
   text-align: center;
 }
+.text-center > .img-responsive {
+  margin: 0px auto;
+}
 .text-light {
   font-weight: 300;
 }
@@ -6457,6 +6460,7 @@ span.title {
   text-align: center;
   margin-bottom: 2em;
   text-transform: uppercase;
+  background-color: black;
 }
 .l-mini__section-header > span {
   line-height: 1.2em;
@@ -6464,6 +6468,8 @@ span.title {
   display: inline-block;
   vertical-align: bottom;
   margin-top: -0.5em;
+  background: #e1e1e2;
+  color: black;
 }
 .l-outer__black .l-mini__section-header {
   background-color: white;
