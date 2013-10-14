@@ -38,4 +38,25 @@ if(!jQuery)throw new Error("Bootstrap requires jQuery");+function(a){"use strict
             }
         })
 
+    var m_anim = $(".methodology-animation");
+    if(m_anim.length){
+        var children = m_anim.children();
+
+        $(window).on({'scroll': function(){
+            var wTop = $(window).scrollTop() + $(window).height()
+                , aH = m_anim.outerHeight()
+                , aTop = m_anim.offset().top
+                , count = children.length
+                , ratio = (wTop - aTop) / aH;
+
+            children.each(function(idx, elem){
+                console.log(ratio, (idx+1)/count);
+                if( (idx+1)/count < ratio)
+                    $(elem).removeClass('notshown').addClass('shown')
+                else
+                    $(elem).addClass('notshown').removeClass('shown')
+            });
+        }});
+    }
+
 }(window.jQuery);

@@ -7,7 +7,8 @@ pagename: portfolio
 <div class="l-outer__orange navbar-switcher">
   <div class="container">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1 portfolio-top">
+
+      <div class="col-md-8 col-md-offset-2 portfolio-top">
         <div class="portfolio-nav">
           <a href="{{ page.prev }}" title="Previous Project" class="hnc-icon hnc-icon-arrowleft"> </a>
           <a href="{{ page.next }}" title="Next Project" class="hnc-icon hnc-icon-arrowright"> </a>
@@ -16,17 +17,21 @@ pagename: portfolio
         <p class="text-left">{{ page.description }}</p>
 
         {% if page.website %}
-          <div class="text-center mar-top-4">
-            <a target="_blank" href="{{ page.website }}" class="btn btn-black-white marg-btm">visit the site</a>
+          <div class="text-center mar-top-2">
+            <a target="_blank" href="{{ page.website }}" class="btn btn-black-default marg-btm">visit the site</a>
           </div>
         {% endif %}
-
+        <a href="#project-content" class="btn-ico__down">scroll down</a>
       </div>
     </div>
   </div>
 </div>
 
-{{ content }}
+<div class="portfolio-content">
+  <div class="container" id="project-content">
+  {{ content }}
+  </div>
+</div>
 
 
 <div class="l-outer-section l-outer__black footer">
