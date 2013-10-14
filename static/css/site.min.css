@@ -6501,7 +6501,7 @@ span.title {
 }
 .page-header {
   color: white;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 30px;
   line-height: 1.5;
   margin-bottom: 60px;
@@ -6509,6 +6509,7 @@ span.title {
 @media (min-width: 480px) {
   .page-header {
     font-size: 40px;
+    font-weight: 100;
   }
   .lead {
     font-size: 24px;
@@ -6525,6 +6526,7 @@ span.title {
 @media (min-width: 768px) {
   .page-header {
     font-size: 60px;
+    font-weight: 100;
   }
   .l-main-head {
     padding-top: 150px;
