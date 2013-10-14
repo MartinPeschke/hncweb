@@ -6465,13 +6465,18 @@ span.title {
   vertical-align: bottom;
   margin-top: -0.5em;
 }
-.l-outer__black .l-mini__section-header,
+.l-outer__black .l-mini__section-header {
+  background-color: white;
+}
+.l-outer__black .l-mini__section-header > span {
+  background: black;
+  color: white;
+}
 .l-outer__dark .l-mini__section-header {
   background-color: white;
 }
-.l-outer__black .l-mini__section-header > span,
 .l-outer__dark .l-mini__section-header > span {
-  background: black;
+  background: #2d2d2d;
   color: white;
 }
 .l-outer__gray .l-module__section-header > span {

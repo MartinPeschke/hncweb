@@ -76,12 +76,15 @@
   }
 }
 
-.l-outer__black .l-mini__section-header, .l-outer__dark .l-mini__section-header {
+.l-outer__black .l-mini__section-header {
   background-color: white;
-  > span{background: black;color: white;}
+  > span {background: black;color: white;}
 }
 
-
+.l-outer__dark .l-mini__section-header {
+  background-color: white;
+  > span {background: @brand-dark;color: white;}
+}
 
 .l-outer__gray .l-module__section-header > span{background: #e1e1e2;}
 .l-outer__white .l-module__section-header > span{background: white;}
