@@ -6376,9 +6376,8 @@ span.title {
 .l-main-head {
   text-align: center;
   padding-top: 30px;
-  padding-bottom: 107px;
+  padding-bottom: 137px;
   position: relative;
-  min-height: 800px;
 }
 .l-module .img-responsive {
   margin: 0px auto;
@@ -6531,6 +6530,7 @@ span.title {
   .l-main-head {
     padding-top: 150px;
     padding-bottom: 130px;
+    min-height: 800px;
   }
   .l-module__section-header > span {
     padding: 0 50px;
