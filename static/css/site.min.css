@@ -6378,6 +6378,7 @@ span.title {
   padding-top: 30px;
   padding-bottom: 137px;
   position: relative;
+  min-height: 640px;
 }
 .l-module .img-responsive {
   margin: 0px auto;
