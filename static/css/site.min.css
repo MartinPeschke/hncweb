@@ -6232,8 +6232,19 @@ a {
 .l-outer__orange {
   background: #EB5942;
 }
+.l-outer__dark {
+  background: #2d2d2d;
+  color: white;
+}
 .l-outer__black {
   background: black;
+  color: white;
+}
+.l-outer__alternating:nth-child(3n+1) {
+  background: #e1e1e2;
+}
+.l-outer__alternating:nth-child(3n) {
+  background: #2d2d2d;
   color: white;
 }
 /* BUTTONS */
@@ -6512,6 +6523,7 @@ span.title {
 }
 .portfolio-top {
   min-height: 800px;
+  position: relative;
 }
 .portfolio-nav {
   font-size: 40px;
@@ -6556,6 +6568,8 @@ span.title {
 @media (min-width: 768px) {
   .resized {
     min-height: 1200px;
+    margin-top: -60px;
+    padding-top: 60px;
   }
 }
 .box-members {
@@ -6576,7 +6590,12 @@ span.title {
 .box-members__name {
   text-transform: uppercase;
   margin-top: 60px;
+  margin-bottom: 0;
+}
+.box-members__position {
+  font-weight: 300;
   margin-bottom: 30px;
+  margin-top: 0;
 }
 .box-members__label {
   margin-top: 15px;
